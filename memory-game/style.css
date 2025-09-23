@@ -1,0 +1,273 @@
+body {
+  margin: 0;
+  font-family: 'Cairo', 'Arial', sans-serif;
+  direction: rtl;
+  background: #f7f7fa;
+  transition: background 0.5s;
+}
+.welcome-bg {
+  background: url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+  min-height: 100vh;
+  animation: fadeInBg 2s;
+}
+@keyframes fadeInBg {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.welcome-container {
+  text-align: center;
+  padding-top: 20vh;
+  color: #fff;
+  background: rgba(0,0,0,0.4);
+  border-radius: 24px;
+  margin: 5vw auto;
+  max-width: 400px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  animation: fadeIn 1.5s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.main-title {
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #ff6a00, #ffd800, #00ffb3, #007bff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+  animation: fadeTitle 2.5s;
+}
+
+.fade-title {
+  opacity: 0;
+  animation: fadeTitle 2.5s forwards;
+}
+
+@keyframes fadeTitle {
+  0% { opacity: 0; transform: scale(0.8); }
+  60% { opacity: 1; transform: scale(1.08); }
+  100% { opacity: 1; transform: scale(1); }
+}
+}
+.subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  color: #ffd800;
+  text-shadow: 0 2px 8px #000;
+}
+.start-btn {
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 32px;
+  background: linear-gradient(90deg, #ff6a00, #ffd800);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-bottom: 2rem;
+}
+.start-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+}
+.animated-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.icon {
+  width: 48px;
+  height: 48px;
+  animation: bounce 1.5s infinite alternate;
+}
+.icon:nth-child(2) {
+  animation-delay: 0.5s;
+}
+.icon:nth-child(3) {
+  animation-delay: 1s;
+}
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-18px); }
+}
+.particles {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+}
+.game-bg {
+  background: linear-gradient(135deg, #111 60%, #222 100%);
+  min-height: 100vh;
+  animation: gradientMove 6s infinite alternate, fadeInBg 1.5s;
+}
+
+@keyframes gradientMove {
+  0% { background: linear-gradient(135deg, #111 60%, #222 100%); }
+  100% { background: linear-gradient(135deg, #222 60%, #111 100%); }
+}
+}
+.game-container {
+  max-width: 400px;
+  margin: 8vh auto;
+  background: rgba(255,255,255,0.85);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  animation: fadeIn 1.2s;
+}
+.score-lives {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+  color: #333;
+}
+.level-select {
+  margin-bottom: 1.5rem;
+}
+.level-select label {
+  font-weight: bold;
+  margin-left: 0.5rem;
+}
+.level-select select {
+  padding: 0.5rem 1rem;
+  border-radius: 16px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+#startLevel {
+  margin-right: 1rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 16px;
+  border: none;
+  background: linear-gradient(90deg, #00ffb3, #007bff);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+#startLevel:hover {
+  transform: scale(1.07);
+}
+.color-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin: 2rem 0;
+}
+.color-btn {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 0 24px 4px rgba(0,0,0,0.7);
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s, filter 0.2s;
+  outline: none;
+  background-blend-mode: lighten;
+  filter: brightness(0.7);
+  /* ستضيء فقط عند .active أو :active */
+  position: relative;
+  overflow: hidden;
+}
+}
+
+/* تم تعطيل نبضات الألوان للأزرار */
+}
+#red { background: radial-gradient(circle, #ff4b2b 70%, #ff6a00 100%); }
+#blue { background: radial-gradient(circle, #007bff 70%, #00c6ff 100%); }
+#green { background: radial-gradient(circle, #00ffb3 70%, #00c853 100%); }
+#yellow { background: radial-gradient(circle, #ffd800 70%, #fff700 100%); }
+.color-btn:active, .color-btn.active {
+  box-shadow: 0 0 64px 24px #fff, 0 0 32px 8px currentColor;
+  transform: scale(1.18);
+  filter: brightness(2) drop-shadow(0 0 24px #fff);
+  z-index: 2;
+  transition: box-shadow 0.35s cubic-bezier(.4,2,.3,1), filter 0.35s cubic-bezier(.4,2,.3,1), transform 0.35s cubic-bezier(.4,2,.3,1);
+}
+  width: 38px;
+  height: 38px;
+  pointer-events: none;
+  user-select: none;
+}
+}
+.message {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #ff4b2b;
+  margin: 1.5rem 0;
+  min-height: 2.5rem;
+  transition: opacity 0.3s;
+}
+.message.win {
+  color: #00c853;
+  animation: confetti 1.2s, fadeIn 0.8s;
+  background: linear-gradient(90deg, #ffd800 30%, #00ffb3 70%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@keyframes confetti {
+  0% { transform: scale(1) rotate(0deg); }
+  30% { transform: scale(1.2) rotate(-8deg); }
+  60% { transform: scale(1.1) rotate(8deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+.back-btn {
+  margin-top: 2rem;
+  padding: 0.7rem 2rem;
+  border-radius: 16px;
+  border: none;
+  background: linear-gradient(90deg, #ff4b2b, #ffd800);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  transition: transform 0.2s;
+}
+.back-btn:hover {
+  transform: scale(1.07);
+}
+@media (max-width: 600px) {
+  .welcome-container, .game-container {
+    max-width: 98vw;
+    min-width: 220px;
+    padding: 1.2rem 0.5rem;
+    margin: 2vw auto;
+    border-radius: 12px;
+  }
+  .main-title {
+    font-size: 2.1rem;
+  }
+  .color-btn {
+    width: 44px;
+    height: 44px;
+    min-width: 38px;
+    min-height: 38px;
+  }
+  .score-lives {
+    font-size: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  .level-select {
+    font-size: 0.95rem;
+  }
+  .color-buttons {
+    gap: 0.7rem;
+    margin: 1.2rem 0;
+  }
+  .game-container {
+    padding: 1rem 0.2rem;
+  }
+}

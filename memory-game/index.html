@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zaius | لعبة الذاكرة بالألوان</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="welcome-bg">
+  <div class="welcome-container">
+    <h1 class="main-title fade-title">Zaius</h1>
+    <p class="subtitle">اختبر ذاكرتك بالألوان!</p>
+    <button class="start-btn" onclick="window.location.href='game.html'">ابدأ اللعبة</button>
+    <div class="animated-icons">
+      <img src="https://img.icons8.com/color/96/paint-palette.png" class="icon" alt="لوحة ألوان">
+      <img src="https://img.icons8.com/color/96/party-balloons.png" class="icon" alt="بالونات">
+      <img src="https://img.icons8.com/color/96/confetti.png" class="icon" alt="كونفتي">
+    </div>
+  </div>
+  <canvas id="confetti-canvas"></canvas>
+  <div class="particles"></div>
+  <script src="script.js"></script>
+  <script>
+    // تأثير جسيمات confetti بسيط
+    const canvas = document.getElementById('confetti-canvas');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const ctx = canvas.getContext('2d');
+    function randomColor() {
+      const colors = ['#ff6a00','#ffd800','#00ffb3','#007bff','#ff4b2b','#00c853','#ffd800'];
+      return colors[Math.floor(Math.random()*colors.length)];
+    }
+    function drawConfetti() {
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      for(let i=0;i<60;i++){
+        ctx.beginPath();
+        ctx.arc(Math.random()*canvas.width,Math.random()*canvas.height,Math.random()*8+4,0,2*Math.PI);
+        ctx.fillStyle=randomColor();
+        ctx.globalAlpha=0.7;
+        ctx.fill();
+      }
+    }
+    setInterval(drawConfetti, 1200);
+    window.addEventListener('resize',()=>{
+      canvas.width=window.innerWidth;
+      canvas.height=window.innerHeight;
+    });
+  </script>
+</body>
+</html>
